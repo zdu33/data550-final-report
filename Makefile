@@ -14,3 +14,7 @@ report.html: code/03_render_report.R output/data_clean.rds tables figures report
 .PHONY: clean
 clean:
 	rm -f output/*.rds && rm -f output/*.png && rm -f *.html
+
+.PHONY: install	
+install:
+	Rscript -e "if (!requireNamespace('renv', quietly = TRUE)) install.packages('renv'); renv::restore()"

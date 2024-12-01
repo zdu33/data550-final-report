@@ -39,6 +39,16 @@ The figure is saved as a `.png` file in the `output/` folder.
   - The parameter `include_stress` in the R Markdown file is used to include or exclude stress-related analysis as specified in the 03_render_report.R script.
   
 ------------------------------------------------------------------------
+## How to Use
+
+1. Using R Console, set the project root directory as the working directory.
+  - Run `source('renv/activate.R')` to activate the project
+2. Using terminal, go to the project root directory.
+  - Run `make install` to synchronize the package environment.
+  - Run `make report.html` to make the report.
+3. In order to customize the report to include information on disease severity, set `severe = TRUE` in the render function in `03_render_report.R` before making the report. To exclude information on disease severity, set `severe = FALSE` in the render function in `03_render_report.R` before making the report.
+
+------------------------------------------------------------------------
 
  
 The Makefile, Rmarkdown (`report.Rmd`), and HTML report will be in the root directory of the project. The Rmarkdown will contain the tables and figures produced in the analysis.
