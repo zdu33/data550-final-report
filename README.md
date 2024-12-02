@@ -46,9 +46,10 @@ The figure is saved as a `.png` file in the `output/` folder.
 2. Using terminal, go to the project root directory.
   - Run `make install` to synchronize the package environment.
   - Run `make report.html` to make the report.
-3.To customize the report with information on stress levels, mental health conditions, and job satisfaction, edit the render function in 03_render_report.R:
-  -Include stress-related insights by setting stress = TRUE.
-  -Exclude stress-related insights by setting stress = FALSE.
+3. To customize the report with information on stress levels, mental health conditions, and job satisfaction, edit the render function in 03_render_report.R:
+  - Include stress-related insights by setting stress = TRUE.
+  - Exclude stress-related insights by setting stress = FALSE.
+
 ------------------------------------------------------------------------
 
  
