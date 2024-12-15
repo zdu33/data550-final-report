@@ -1,9 +1,13 @@
 {
-    "path": "C:/Users/86155/Desktop/data_550/remote_work_mental_health",
+    "path": "C:/Users/86155/Desktop/remote_work_mental_health",
     "sortOrder": [
         {
             "columnIndex": 2,
             "ascending": true
+        },
+        {
+            "columnIndex": 4,
+            "ascending": false
         }
     ]
 }

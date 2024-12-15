@@ -56,5 +56,74 @@ The figure is saved as a `.png` file in the `output/` folder.
 The Makefile, Rmarkdown (`report.Rmd`), and HTML report will be in the root directory of the project. The Rmarkdown will contain the tables and figures produced in the analysis.
   
 
+------------------------------------------------------------------------
+
+## Docker Image
+
+The project includes a Docker image that can be used to generate the report in an automated manner. The image includes all necessary dependencies and R packages required to run the project. 
+
+### Docker Image on DockerHub
+
+You can find the Docker image for this project on DockerHub: [DockerHub Link](https://hub.docker.com/r/zdu33/report-generator).
+
+------------------------------------------------------------------------
+## Building the Docker Image
+
+To build the Docker image locally, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Ensure you have Docker installed and running on your machine.
+3. Navigate to the project directory where the `Dockerfile` is located.
+4. Run the following command to build the Docker image:
+
+```bash
+docker build -t report-generator.
+```
+
+This will build the Docker image using the `Dockerfile` in the current directory and tag it as `latest`.
+
+------------------------------------------------------------------------
+## Running the Automated Version of the Image
+
+Once the image is built or pulled from DockerHub, you can run it to generate the report. The image includes the necessary R scripts and dependencies to execute the report generation process.
+
+To run the container and generate the report, use the following command:
+
+```bash
+make docker-report
+```
+
+### Explanation of the `docker-report` Target:
+
+This command will:
+- Build a image according to the `Dockerfile`. 
+- Start a Docker container from the image.
+- Mount the local `report` directory into the container's `/app/report` directory.
+- Execute the `make` process inside the container to run the four R scripts in sequence and generate the report.
+- The generated `report.html` file will be available in the local `report` directory.
+
+### `Makefile` Targets
+
+The following `make` targets are available to run the report generation process manually or within the Docker container:
+
+- `make install`: Installs R package dependencies using `renv`.
+- `make clean`: Cleans up generated output files (e.g., `.rds`, `.png`, `.html`).
+- `make docker-report`: Runs the full report generation process inside the Docker container.
+
+------------------------------------------------------------------------
+## Example Usage
+
+To build and run the Docker container:
+
+1. Run the report generation inside the container:
+
+   ```bash
+   make docker-report
+   ```
+
+The final report will be available in the `report` folder of the project directory.
+
+
+Ensure that your `report.Rmd` file and all other necessary files are in place before running the automated version.
 
 
